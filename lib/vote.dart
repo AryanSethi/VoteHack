@@ -50,6 +50,7 @@ class VoterSelection extends StatefulWidget {
 
 class _VoterSelectionState extends State<VoterSelection> {
   final _collection = FirebaseFirestore.instance.collection('politicianparty');
+
   int _selected = 0;
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,7 @@ class _VoterSelectionState extends State<VoterSelection> {
             return RadioListTile<int>(
               value: index,
               groupValue: _selected,
-              title: Text(ds.data()['party']),
+              title: Text(ds.id),
               onChanged: (int selection) {
                 setState(() {
                   _selected = selection;
