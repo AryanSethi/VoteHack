@@ -13,8 +13,8 @@ class _VoteState extends State<Vote> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.blueAccent,
+        elevation: 4.0,
+        backgroundColor: Colors.orange,
         centerTitle: true,
         title: Text(
             "A Vote for a better Nation"), //* Change this to something less cliche
@@ -35,9 +35,11 @@ class SubmitButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: FlatButton(
-        color: Colors.blueAccent,
-        child: Text("Submit"),
-        onPressed: () {},
+        color: Colors.orange,
+        child: Text("Submit Vote"),
+        onPressed: () {
+
+        },
       ),
     );
   }
@@ -51,7 +53,7 @@ class VoterSelection extends StatefulWidget {
 class _VoterSelectionState extends State<VoterSelection> {
   final _collection = FirebaseFirestore.instance.collection('politicianparty');
 
-  int _selected = 0;
+  int _selected = -1;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
