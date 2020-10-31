@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "773457140419",
+    "firebase_url": "https://votehack-c242f.firebaseio.com",
+    "project_id": "votehack-c242f",
+    "storage_bucket": "votehack-c242f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773457140419:android:eda43cde3b64a145a72076",
+        "android_client_info": {
+          "package_name": "com.nyx.VoteHack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773457140419-jl8dhjculujpjm2v4spflog881a68ub5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nyx.VoteHack",
+            "certificate_hash": "fd4028a338149d17a61405a102ed119cc4bb36ef"
+          }
+        },
+        {
+          "client_id": "773457140419-rg1pnoqemnbnhph7k21pmr97eenvapg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzxqc3tsEPZvwXPgRh_VR8Csrg9oIz2aI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773457140419-rg1pnoqemnbnhph7k21pmr97eenvapg2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
