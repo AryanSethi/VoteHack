@@ -37,9 +37,7 @@ class SubmitButton extends StatelessWidget {
       child: FlatButton(
         color: Colors.orange,
         child: Text("Submit Vote"),
-        onPressed: () {
-
-        },
+        onPressed: () {},
       ),
     );
   }

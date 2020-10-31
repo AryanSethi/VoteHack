@@ -61,8 +61,9 @@ class _PreSecurity extends State<PreSecurity> {
           child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 50, width: double.infinity),
             Container(
               height: 180,
               width: 180,
