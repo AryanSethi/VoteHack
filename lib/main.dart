@@ -1,4 +1,4 @@
-import 'package:VoteHack/vote.dart';
+import 'package:VoteHack/security/pre_security.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Vote() //! Change this to auth screen
+        home: PreSecurity() //! Change this to auth screen
         );
   }
 }
