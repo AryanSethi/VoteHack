@@ -1,5 +1,11 @@
+import 'dart:math';
+
+import 'package:VoteHack/vote.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:VoteHack/variable.dart' as variable;
+import 'package:sms/sms.dart';
 
 class Security1 extends StatefulWidget {
   @override
@@ -25,6 +31,7 @@ class _Security1 extends State<Security1> {
                         color: Colors.grey,
                         style: BorderStyle.solid)),
                 child: TextField(
+                  controller: variable.phones,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                       hintText: 'Enter Phone Number',
@@ -43,10 +50,12 @@ class _Security1 extends State<Security1> {
                     borderRadius: BorderRadius.circular(50.0),
                   ),
                   child: IconButton(
-                      onPressed: () {
+                      onPressed: () async {
                         Fluttertoast.showToast(
                             msg: "OTP Funtionality",
                             toastLength: Toast.LENGTH_SHORT);
+                        await variable.sendOtp(variable.phones.text);
+                        showAlertDialog(context, variable.phones.text);
                       },
                       icon: Icon(
                         Icons.keyboard_arrow_right,
@@ -58,4 +67,65 @@ class _Security1 extends State<Security1> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context, number) {
+  // set up the button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () async {
+      Fluttertoast.showToast(
+          msg: "Please Wait", toastLength: Toast.LENGTH_SHORT);
+      int otpValue = int.parse(variable.otp.text);
+      bool checker = await variable.resultChecker(otpValue);
+      if (checker) {
+        // Navigator.push(
+        //     context, CupertinoPageRoute(builder: (context) => Vote()));
+        Navigator.pushAndRemoveUntil(context,
+            CupertinoPageRoute(builder: (context) => Vote()), (route) => false);
+        variable.otp.clear();
+      } else {
+        Fluttertoast.showToast(
+            msg: "Enter Correct OTP", toastLength: Toast.LENGTH_SHORT);
+      }
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Enter OTP"),
+    content: TextFormField(
+      keyboardType: TextInputType.number,
+      maxLength: 4,
+      style: TextStyle(color: Color.fromRGBO(38, 50, 56, .50)),
+      controller: variable.otp,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderSide: BorderSide(//this has no effect
+              ),
+          borderRadius: BorderRadius.circular(40.0),
+        ),
+        hintText: 'Enter OTP',
+        hintStyle: TextStyle(
+          color: Color.fromRGBO(38, 50, 56, 0.30),
+          fontSize: 15.0,
+          fontFamily: "Poppins",
+        ),
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+      ),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

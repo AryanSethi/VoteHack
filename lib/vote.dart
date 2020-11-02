@@ -58,7 +58,9 @@ class _VoterSelectionState extends State<VoterSelection> {
       stream: _collection.snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return CircularProgressIndicator();
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         }
         return ListView.builder(
           itemBuilder: (context, index) {

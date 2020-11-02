@@ -33,6 +33,10 @@ dependencies:
   cloud_firestore:
   firebase_core:
   fluttertoast:
+  shared_preferences:
+  flutter_otp: ^0.3.2
+  sms:
+  local_auth:
   imei_plugin:
 dev_dependencies:
   flutter_test:
