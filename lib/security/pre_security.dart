@@ -69,14 +69,18 @@ class _PreSecurity extends State<PreSecurity> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 50, width: double.infinity),
-            Container(
-              height: 180,
-              width: 180,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Antu_yast-security.svg/600px-Antu_yast-security.svg.png"))),
-            ),
+            // Container(
+            //   height: 180,
+            //   width: 180,
+            //   // decoration: BoxDecoration(
+            //   //     image: DecorationImage(
+            //   //         image: NetworkImage(
+            //   //             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Antu_yast-security.svg/600px-Antu_yast-security.svg.png"))),
+            // c
+            // ),
+            Padding(
+                padding: EdgeInsets.all(0),
+                child: Image.asset('assets/pre.png')),
             SizedBox(height: 100),
             Padding(
               padding: EdgeInsets.only(left: 20, right: 20),
