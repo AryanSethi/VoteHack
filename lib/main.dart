@@ -1,4 +1,5 @@
-import 'package:VoteHack/vote.dart';
+import 'package:VoteHack/screens/lock_screen.dart';
+import 'package:VoteHack/security/pre_security.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:VoteHack/login.dart';
@@ -19,7 +20,11 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
         home: Login() //! Change this to auth screen
+=======
+        home: LockScreen() //! Change this to auth screen
+>>>>>>> 22efe3a8350a087a7c7a73504274f6d85de32256
         );
   }
 }
