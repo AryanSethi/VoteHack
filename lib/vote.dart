@@ -14,7 +14,7 @@ class _VoteState extends State<Vote> {
     return Scaffold(
       appBar: AppBar(
         elevation: 4.0,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.orange[500],
         centerTitle: true,
         title: Text(
             "A Vote for a better Nation"), //* Change this to something less cliche
@@ -35,11 +35,9 @@ class SubmitButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: FlatButton(
-        color: Colors.orange,
+        color: Colors.orange[700],
         child: Text("Submit Vote"),
-        onPressed: () {
-
-        },
+        onPressed: () {},
       ),
     );
   }
