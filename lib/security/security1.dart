@@ -21,6 +21,10 @@ class _Security1 extends State<Security1> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
+              padding: EdgeInsets.all(40),
+              child: Container(child: Image.asset('assets/mobile.png')),
+            ),
+            Padding(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Container(
                 width: 300,
@@ -35,6 +39,7 @@ class _Security1 extends State<Security1> {
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                       hintText: 'Enter Phone Number',
+                      hintStyle: TextStyle(fontFamily: "Quicksand"),
                       contentPadding: EdgeInsets.all(15),
                       border: InputBorder.none),
                 ),

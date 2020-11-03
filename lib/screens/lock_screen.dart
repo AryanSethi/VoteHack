@@ -21,10 +21,10 @@ class _LockScreen extends State<LockScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor:Colors.orange,
         title: Text(
           "Vote Hack",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         actions: [
           IconButton(
@@ -69,6 +69,7 @@ class _LockScreen extends State<LockScreen> {
                     child: IconButton(
                         icon: Icon(
                           Icons.keyboard_arrow_right,
+                          color: Colors.black,
                           size: 40,
                         ),
                         onPressed: () async {
@@ -100,10 +101,11 @@ class _LockScreen extends State<LockScreen> {
                                 variable.pin2.clear();
                                 variable.pin3.clear();
                                 variable.pin4.clear();
-                                Navigator.push(
+                                Navigator.pushAndRemoveUntil(
                                     context,
                                     CupertinoPageRoute(
-                                        builder: (context) => PreSecurity()));
+                                        builder: (context) => PreSecurity()),
+                                    (route) => false);
                               } else {
                                 Fluttertoast.showToast(
                                     msg: "Wrong Passowrd",

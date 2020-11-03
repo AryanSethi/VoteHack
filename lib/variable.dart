@@ -10,6 +10,8 @@ String uniqueId = "Unknown";
 bool progressBar = false;
 bool getNotify = false;
 
+
+
 //For loc Screen
 TextEditingController pin1 = new TextEditingController();
 TextEditingController pin2 = new TextEditingController();

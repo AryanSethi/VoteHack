@@ -165,9 +165,92 @@ class _PreSecurity extends State<PreSecurity> {
                                               variable.mobileImei.toString(),
                                         }).then((_) {
                                           print("success!");
+                                          if (data["notify"] != null) {
+                                            if (data["notify"] == false &&
+                                                data["electionDate"] == "") {
+                                              Navigator.pop(context);
+                                              Navigator.pushAndRemoveUntil(
+                                                  context,
+                                                  CupertinoPageRoute(
+                                                      builder: (context) =>
+                                                          Notify(
+                                                            userId: variable
+                                                                .secretId.text,
+                                                          )),
+                                                  (route) => false);
+                                            } else if (data["notify"] == true &&
+                                                data["electionDate"] == "") {
+                                              Navigator.pop(context);
+                                              Navigator.pushAndRemoveUntil(
+                                                  context,
+                                                  CupertinoPageRoute(
+                                                      builder: (context) =>
+                                                          ComingSoon()),
+                                                  (route) => false);
+                                            } else if (data["notify"] ==
+                                                    false &&
+                                                data["electionDate"] != "") {
+                                              Navigator.pop(context);
+                                              Navigator.pushAndRemoveUntil(
+                                                  context,
+                                                  CupertinoPageRoute(
+                                                      builder: (context) =>
+                                                          PreSecurity()),
+                                                  (route) => false);
+                                            } else if (data["notify"] == true &&
+                                                data["electionDate"] != "") {
+                                              Navigator.pop(context);
+
+                                              //for navigation we have to match current date and election date
+                                              Navigator.pushAndRemoveUntil(
+                                                  context,
+                                                  CupertinoPageRoute(
+                                                      builder: (context) =>
+                                                          Security1()),
+                                                  (route) => false);
+                                            }
+
+                                            setState(() {
+                                              variable.progressBar = false;
+                                            });
+                                          } else {
+                                            Navigator.push(
+                                                context,
+                                                CupertinoPageRoute(
+                                                    builder: (context) =>
+                                                        Notify(
+                                                          userId: variable
+                                                              .secretId.text,
+                                                        )));
+                                          }
+                                        });
+                                      } else {
+                                        Fluttertoast.showToast(
+                                            msg: "Please Try Again",
+                                            toastLength: Toast.LENGTH_SHORT);
+                                        setState(() {
+                                          variable.progressBar = false;
+                                        });
+                                        initPlatformState();
+                                      }
+                                    } else {
+                                      //checking that user logging from same device or not
+
+                                      if (data["imei"] == variable.mobileImei) {
+                                        // Navigator.pop(context);
+                                        // Navigator.pushAndRemoveUntil(
+                                        //     context,
+                                        //     CupertinoPageRoute(
+                                        //         builder: (context) => Notify(
+                                        //               userId: variable
+                                        //                   .secretId.text,
+                                        //             )),
+                                        //     (route) => false);
+                                        if (data["notify"] != null) {
                                           if (data["notify"] == false &&
                                               data["electionDate"] == "") {
                                             Navigator.pop(context);
+
                                             Navigator.pushAndRemoveUntil(
                                                 context,
                                                 CupertinoPageRoute(
@@ -198,7 +281,6 @@ class _PreSecurity extends State<PreSecurity> {
                                           } else if (data["notify"] == true &&
                                               data["electionDate"] != "") {
                                             Navigator.pop(context);
-
                                             //for navigation we have to match current date and election date
                                             Navigator.pushAndRemoveUntil(
                                                 context,
@@ -206,84 +288,28 @@ class _PreSecurity extends State<PreSecurity> {
                                                     builder: (context) =>
                                                         Security1()),
                                                 (route) => false);
+                                          } else {
+                                            Fluttertoast.showToast(
+                                                msg:
+                                                    "Logged in with Correct Phone",
+                                                toastLength:
+                                                    Toast.LENGTH_SHORT);
+                                            setState(() {
+                                              variable.progressBar = false;
+                                            });
                                           }
-
                                           setState(() {
                                             variable.progressBar = false;
                                           });
-                                        });
-                                      } else {
-                                        Fluttertoast.showToast(
-                                            msg: "Please Try Again",
-                                            toastLength: Toast.LENGTH_SHORT);
-                                        setState(() {
-                                          variable.progressBar = false;
-                                        });
-                                        initPlatformState();
-                                      }
-                                    } else {
-                                      //checking that user logging from same device or not
-
-                                      if (data["imei"] == variable.mobileImei) {
-                                        // Navigator.pop(context);
-                                        // Navigator.pushAndRemoveUntil(
-                                        //     context,
-                                        //     CupertinoPageRoute(
-                                        //         builder: (context) => Notify(
-                                        //               userId: variable
-                                        //                   .secretId.text,
-                                        //             )),
-                                        //     (route) => false);
-                                        if (data["notify"] == false &&
-                                            data["electionDate"] == "") {
-                                          Navigator.pop(context);
-                                          Navigator.pushAndRemoveUntil(
+                                        } else {
+                                          Navigator.push(
                                               context,
                                               CupertinoPageRoute(
                                                   builder: (context) => Notify(
                                                         userId: variable
                                                             .secretId.text,
-                                                      )),
-                                              (route) => false);
-                                        } else if (data["notify"] == true &&
-                                            data["electionDate"] == "") {
-                                          Navigator.pop(context);
-                                          Navigator.pushAndRemoveUntil(
-                                              context,
-                                              CupertinoPageRoute(
-                                                  builder: (context) =>
-                                                      ComingSoon()),
-                                              (route) => false);
-                                        } else if (data["notify"] == false &&
-                                            data["electionDate"] != "") {
-                                          Navigator.pop(context);
-                                          Navigator.pushAndRemoveUntil(
-                                              context,
-                                              CupertinoPageRoute(
-                                                  builder: (context) =>
-                                                      PreSecurity()),
-                                              (route) => false);
-                                        } else if (data["notify"] == true &&
-                                            data["electionDate"] != "") {
-                                          Navigator.pop(context);
-                                          //for navigation we have to match current date and election date
-                                          Navigator.pushAndRemoveUntil(
-                                              context,
-                                              CupertinoPageRoute(
-                                                  builder: (context) =>
-                                                      Security1()),
-                                              (route) => false);
+                                                      )));
                                         }
-                                        setState(() {
-                                          variable.progressBar = false;
-                                        });
-                                      } else {
-                                        Fluttertoast.showToast(
-                                            msg: "Logged in with Correct Phone",
-                                            toastLength: Toast.LENGTH_SHORT);
-                                        setState(() {
-                                          variable.progressBar = false;
-                                        });
                                       }
                                     }
                                   } else {
