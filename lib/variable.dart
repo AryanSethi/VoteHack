@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 TextEditingController secretId = TextEditingController();
 TextEditingController phoneNumber = TextEditingController();
+TextEditingController question = TextEditingController();
 String mobileImei = 'Unknown';
 String uniqueId = "Unknown";
 bool progressBar = false;

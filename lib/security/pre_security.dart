@@ -1,6 +1,7 @@
 import 'package:VoteHack/screens/commingSoon.dart';
 import 'package:VoteHack/screens/notification.dart';
 import 'package:VoteHack/security/security1.dart';
+import 'package:VoteHack/security/security2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -230,7 +231,7 @@ class _PreSecurity extends State<PreSecurity> {
                                                   context,
                                                   CupertinoPageRoute(
                                                       builder: (context) =>
-                                                          Security1()),
+                                                         Security2()),
                                                   (route) => false);
                                             }
 
@@ -310,7 +311,7 @@ class _PreSecurity extends State<PreSecurity> {
                                                 context,
                                                 CupertinoPageRoute(
                                                     builder: (context) =>
-                                                        Security1()),
+                                                        Security2()),
                                                 (route) => false);
                                           } else {
                                             Fluttertoast.showToast(

@@ -1,11 +1,9 @@
-import 'dart:math';
 
 import 'package:VoteHack/vote.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:VoteHack/variable.dart' as variable;
-import 'package:sms/sms.dart';
 
 class Security1 extends StatefulWidget {
   @override
@@ -16,7 +14,18 @@ class _Security1 extends State<Security1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "Security Breach 2",
+          style: TextStyle(
+              fontFamily: "Quicksand", color: Colors.black, fontSize: 25),
+        ), //* Change this to something less cliche
+      ),
+      body: SingleChildScrollView(
+          child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -81,7 +90,7 @@ class _Security1 extends State<Security1> {
                 ))
           ],
         ),
-      ),
+      )),
     );
   }
 }
