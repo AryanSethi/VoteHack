@@ -10,8 +10,7 @@ String uniqueId = "Unknown";
 bool progressBar = false;
 bool getNotify = false;
 
-
-
+List<Color> colorMain = [Color(0xFF6dd5ed), Color(0xFF2193b0)];
 //For loc Screen
 TextEditingController pin1 = new TextEditingController();
 TextEditingController pin2 = new TextEditingController();

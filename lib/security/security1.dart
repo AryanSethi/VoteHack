@@ -49,8 +49,20 @@ class _Security1 extends State<Security1> {
             Container(
                 height: 80,
                 width: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(colors: variable.colorMain),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade400,
+                        offset: Offset(1, 5),
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0)
+                  ],
+                ),
                 child: Card(
-                  elevation: 10,
+                  elevation: 0,
+                  color: Colors.transparent,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50.0),
                   ),
@@ -77,7 +89,13 @@ class _Security1 extends State<Security1> {
 showAlertDialog(BuildContext context, number) {
   // set up the button
   Widget okButton = FlatButton(
-    child: Text("OK"),
+    child: Text(
+      "OK",
+      style: TextStyle(
+          color: Colors.white,
+          fontFamily: "Quicksand",
+          fontWeight: FontWeight.bold),
+    ),
     onPressed: () async {
       Fluttertoast.showToast(
           msg: "Please Wait", toastLength: Toast.LENGTH_SHORT);
@@ -98,7 +116,11 @@ showAlertDialog(BuildContext context, number) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Enter OTP"),
+    backgroundColor: Color(0xFF6dd5ed),
+    title: Text(
+      "Enter OTP",
+      style: TextStyle(fontFamily: "Quicksand"),
+    ),
     content: TextFormField(
       keyboardType: TextInputType.number,
       maxLength: 4,
@@ -114,7 +136,7 @@ showAlertDialog(BuildContext context, number) {
         hintStyle: TextStyle(
           color: Color.fromRGBO(38, 50, 56, 0.30),
           fontSize: 15.0,
-          fontFamily: "Poppins",
+          fontFamily: "Quicksand",
         ),
         filled: true,
         fillColor: Colors.white,

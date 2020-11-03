@@ -53,9 +53,14 @@ class _PreSecurity extends State<PreSecurity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 4.0,
-        backgroundColor: Colors.orange,
-        title: Text("Vote Hack"), //* Change this to something less cliche
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+
+        title: Text(
+          "Vote Hack",
+          style: TextStyle(
+              color: Colors.black, fontFamily: "Quicksand", fontSize: 30),
+        ), //* Change this to something less cliche
       ),
       body: SingleChildScrollView(
           child: Container(
@@ -87,6 +92,7 @@ class _PreSecurity extends State<PreSecurity> {
                   controller: variable.secretId,
                   decoration: InputDecoration(
                       hintText: 'Enter UID',
+                      hintStyle: TextStyle(fontFamily: "Quicksand"),
                       contentPadding: EdgeInsets.all(15),
                       border: InputBorder.none),
                 ),
@@ -108,6 +114,7 @@ class _PreSecurity extends State<PreSecurity> {
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                       hintText: 'Enter Phone Number',
+                      hintStyle: TextStyle(fontFamily: "Quicksand"),
                       contentPadding: EdgeInsets.all(15),
                       border: InputBorder.none),
                 ),
@@ -117,6 +124,17 @@ class _PreSecurity extends State<PreSecurity> {
             Container(
                 height: 80,
                 width: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(colors: variable.colorMain),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade400,
+                        offset: Offset(1, 5),
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0)
+                  ],
+                ),
                 child: variable.progressBar
                     ? Padding(
                         padding: EdgeInsets.all(20),
@@ -126,7 +144,8 @@ class _PreSecurity extends State<PreSecurity> {
                         ),
                       )
                     : Card(
-                        elevation: 10,
+                        elevation: 0,
+                        color: Colors.transparent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0),
                         ),
@@ -134,6 +153,7 @@ class _PreSecurity extends State<PreSecurity> {
                             icon: Icon(
                               Icons.keyboard_arrow_right,
                               size: 40,
+                              color: Colors.white,
                             ),
                             onPressed: () {
                               setState(() {

@@ -32,7 +32,7 @@ class _Notify extends State<Notify> {
           });
         },
         child: Icon(Icons.arrow_forward),
-        backgroundColor: Colors.orange,
+        backgroundColor: Color(0xFF6dd5ed),
       ),
       body: SingleChildScrollView(
           child: Container(
@@ -50,8 +50,8 @@ class _Notify extends State<Notify> {
                     print(variable.getNotify);
                   });
                 },
-                activeTrackColor: Colors.orange,
-                activeColor: Colors.deepOrangeAccent,
+                activeTrackColor: Color(0xFF6dd5ed),
+                activeColor: Color(0xFF2193b0),
               ),
             ),
             Padding(
@@ -61,7 +61,7 @@ class _Notify extends State<Notify> {
             Text(
               "Turn Notification ON to get notify on Election Day",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 25, fontFamily: "Quicksand"),
             ),
           ],
         ),

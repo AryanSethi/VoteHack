@@ -18,7 +18,7 @@ class ComingSoon extends StatelessWidget {
           SizedBox(height: 30),
           Text(
             "No Election Yet!!!",
-            style: TextStyle(fontSize: 40),
+            style: TextStyle(fontSize: 40,fontFamily: "Quicksand"),
           )
         ],
       )),

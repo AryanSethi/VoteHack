@@ -21,10 +21,12 @@ class _LockScreen extends State<LockScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Colors.orange,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         title: Text(
           "Vote Hack",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+              color: Colors.black, fontFamily: "Quicksand", fontSize: 30),
         ),
         actions: [
           IconButton(
@@ -39,10 +41,15 @@ class _LockScreen extends State<LockScreen> {
               })
         ],
       ),
-      body: Container(
+      body: SingleChildScrollView(
+          child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Padding(
+              padding: EdgeInsets.all(30),
+              child: Image.asset('assets/passcode.png'),
+            ),
             SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -61,15 +68,27 @@ class _LockScreen extends State<LockScreen> {
             Container(
                 height: 80,
                 width: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(colors: variable.colorMain),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade400,
+                        offset: Offset(1, 5),
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0)
+                  ],
+                ),
                 child: Card(
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
+                    elevation: 0,
+                    color: Colors.transparent,
+                    // shape: RoundedRectangleBorder(
+                    //   borderRadius: BorderRadius.circular(50.0),
+                    // ),
                     child: IconButton(
                         icon: Icon(
                           Icons.keyboard_arrow_right,
-                          color: Colors.black,
+                          color: Colors.white,
                           size: 40,
                         ),
                         onPressed: () async {
@@ -128,7 +147,7 @@ class _LockScreen extends State<LockScreen> {
                         })))
           ],
         ),
-      ),
+      )),
     );
   }
 }
@@ -140,7 +159,8 @@ Widget textField(TextEditingController controller, FocusNode fnode,
     width: MediaQuery.of(context).size.width / 5,
     height: MediaQuery.of(context).size.height / 10,
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0), color: Colors.grey.shade400),
+        borderRadius: BorderRadius.circular(10.0),
+        gradient: LinearGradient(colors: variable.colorMain)),
     child: Center(
       child: TextField(
         obscureText: true,
